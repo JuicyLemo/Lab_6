@@ -1,0 +1,211 @@
+.col-three {
+	width: 33%; /* изменение ширины объекта */
+    text-align: center; /* выравнивание текста по центру */
+	}
+.menu {
+	float: right;
+	}
+.logo {
+	float: left; 
+	padding: 1em; /* устанавливает отступы с внутренней стороны рамки */
+	}
+.container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 auto; /* устанавливает величину отступа от каждого края элемента */
+	width: 100%; 
+	max-width: 58em; /* максимальный лимит ширины */
+	}
+footer {
+	margin-top: 10px;
+	height: 70px; /* изменение высоты объекта */
+	line-height: 30px; /* изменение межстрочного интервала */
+	}
+.text {
+	margin-left: 5%;
+	width: 90%;
+	}
+.back {
+	padding-left: 1rem;
+	padding-bottom: 1rem;
+	padding-top: 1rem;
+	
+	background: #bce3f5; /* устанавливает цвет фона объекта */
+	}
+.main_ground {
+	margin-top: 1%;
+	display: flex;
+	flex-direction: column;
+	
+	font-family: Geneva, Arial, Helvetica, sans-serif; /* устанавливает семейство шрифта */
+	background: #dae9f0;
+	width: 85%;
+	margin-left: 7.5%;
+	
+	}
+.body_text {
+	font-size: 14pt; /* определяет размер шрифта элемента */
+	}
+.quotes {
+	font-weight: 100; /* устанавливает насыщенность шрифта */
+	font-size: 16pt;
+	}
+.signatures{
+	font-size: 12pt;
+	}
+.move{
+	background-color: rgba(253, 242, 92, 0.863);
+	margin-left: 21%;
+	width: 58%;
+	}
+
+.img-1{
+	height:350px; 
+	width: 654px;
+}
+
+header{
+	margin-left: 7.5%;
+	text-align: center;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	width: 85%;
+	height: 20%;
+	background-color: rgb(26, 167, 148);
+}
+
+/* Лабораторная №4 */
+.bookmark {
+	color: #00AC6B;
+   }
+.added {
+	color: #FF4F00;
+   }
+.bookmark-list a {
+	margin-right: 50px;
+   }
+
+.open {
+	width: 125px;
+	height: 37px;
+	background-color: rgba(253, 242, 92, 0.863);
+	color: royalblue;
+	border: none;
+	border-radius: 20px;
+	font-size: 15px;
+	margin-bottom: 10px;
+}
+
+dialog {
+	width: 220px;
+	height: 240px;
+	border-radius: 10px;
+	border-color: royalblue;
+	position: fixed;
+}
+
+input {
+	width: 80%;
+	height: 20px;
+	margin-top: 5px;
+}
+
+.btn-show {
+	width: 125px;
+	height: 37px;
+	background-color: royalblue;
+	color: rgba(253, 242, 92, 0.863);
+	border: none;
+	border-radius: 20px;
+	font-size: 15px;
+	margin-top: 10px;
+	display: block;
+}
+
+.article__text {
+	display: none;
+}
+
+.show {
+display: block;
+}
+
+.open:hover, .btn-show:hover {
+    cursor: pointer;
+}
+ /* ---------------- */
+
+	@media (max-width: 1024px){
+		.move{
+			background-color: rgba(253, 242, 92, 0.863);
+			margin-left: 17%;
+			width: 66%;
+			}
+		.img-1{
+			height: 100%;
+			width: 562px;
+		}
+		.col-three {
+			
+			margin-left: 7.5%;
+			}
+	}
+
+	@media (max-width: 768px) {
+		/* Ширину класса container делаем резиновой */
+		.container {
+			max-width: 100%;
+			display: flex;
+			}
+			
+			.menu {
+				float: none;
+				text-align: left;
+			}
+			.move{
+			   background-color: rgba(253, 242, 92, 0.863);
+			   margin-left: 15%;
+			   width: 70%;
+			   }
+   
+			.img-1{
+				height: 100%;
+				width: 444px;
+			}
+   
+			}
+
+	@media (max-width: 480px) {
+		/* Ширину класса container делаем резиновой */
+		 .container {
+		 max-width: 100%;
+		 display: flex;
+		 flex-direction: column;
+		 }
+		 .logo {
+			 float: none;
+		 }
+		 .menu {
+			 float: none;
+			 text-align: left;
+		 }
+		 .move{
+			background-color: rgba(253, 242, 92, 0.863);
+			width: 100%;
+			margin-left: auto;
+			}
+
+		 .img-1{
+			 height: 100%;
+			 width: 390px;
+		 }
+		 
+		/* Расположение блоков в footer делаем в одну колонку */
+		 .col-three {
+		 float: none;
+		 width: 100%;
+		 text-align: center;
+		 }
+	}
+	
+	
