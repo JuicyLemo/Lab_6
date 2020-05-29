@@ -1,34 +1,21 @@
 var bookmarkBtn = document.querySelectorAll('.bookmark'); //объявляев переменную bookmarkBtn и присваиваем ей значение элемента, в который содержит класс bookmark
 
-function bookmarkClick(e) {
-
-    e.preventDefault(); //отмена действия браузера 
-
-    var bm = this; //создаем глобальную переменную bm
-    bm.classList.toggle('added'); //Если класс added у элемента отсутствует - добавляет, иначе - убирает.
-
-    var parentId = bm.parentElement.id; //parentId получает родителя переменной bm
-    var bookMarks = document.querySelector('.bookmark-list'); //возвращает первый элемент документа с классом .bookmark-list
-
-    if(bm.classList.contains('added')) { //условный оператор: если bm содержит класс added то выполняется следующее
-      bm.textContent = 'Удалить из закладок'; //присваивает bm текстовое значение в виде строки "Удалить из закладок"
-      var headerArticle = document.querySelector('#' + parentId +' h2');
-      var linkArticle = document.createElement('a'); //создает элемент a для переменной linkArticle
-      linkArticle.textContent = headerArticle.textContent; //присваивает linkArtikle текстовое значение headerArticle
-      linkArticle.setAttribute('href', '#' + parentId); //добавляет атрибут href для linkArtikle
-      bookMarks.append(linkArticle); //добавляет linkArticle в конце блока bookMarks
-    } 
-    else { //при невыполнении оператора условия, происходит следуещее
-      bm.textContent = 'Добавить в закладки'; //присваивает bm текстовое значение в виде строки "Добавить в закладки"
-      var linkRemove = document.querySelector('a[href="#'+ parentId +'"]'); //находит элемент в html документе, со следующим содержанием 'a[href="#'+ parentId +'"]'
-      linkRemove.remove(); //удаление linkRemove из дерева 
-    }
-
-}
-
-for(let i=0; i<bookmarkBtn.length; i++){
-    bookmarkBtn[i].onclick = bookmarkClick; //при нажатии на bookmarkBtn происходит вызов функции bookmarkClick
-}
+$( document ).ready(function() { //проверка на готовность страницы
+  $('.bookmark').click(function (e) { //при нажатии на элемент с классом bookmark происходит вызов функции
+    e.preventDefault(); 
+   $(this).toggleClass('added'); //данному элементу, по которому было произведено нажатие добовляет новый класс added
+    var parentId = $(this).parent().attr("id"); // объявление переменной parentId которой присваивается родительский атрибут id
+    var bookMarks = $('.bookmark-list'); //возвращает первый элемент документа с классом .bookmark-list
+    if($(this).hasClass('added')) { //если элемен, по котрому было произведено нажатие уже имеет класс added, то выполняется следующее
+      $(this).text("Удалить из закладок"); //тект у данного элемента меняется на "Удалить из закладок"
+      var text = $('#' + parentId +' h2').text();
+      $('<a>', { href: '#' + parentId, text: text}).appendTo(bookMarks); //в конец блока bookMarks добавляет тег <a> со следующими атрибутами { href: '#' + parentId, text: text}
+   } else { //при невыполнении оператора условия, происходит следуещее
+     $(this).text("Добавить в закладки"); //текст у данного элемента меняется на "Дабавить в закладки"
+      $('a[href="#'+ parentId +'"]').remove(); //происходит удаление тега <a> с атрибутами [href="#'+ parentId +'"]
+      }
+  });
+});
 
 var dialog = document.querySelector('dialog');
 document.querySelector('#btn_open').onclick = function() {
@@ -64,4 +51,29 @@ for (let i = 0; i < showArticle.length; i++) {
   showArticle[i].addEventListener("click", showArticleF)
 
 }
+
+// -------- Лабораторная №5 -------- 
+
+  $(document).ready(function() {
+    $(window).scroll (function(){
+        if ($(document).scrollTop() > $("header").height()+9)
+        {
+            $("#menu").addClass("fixed");
+        } else {
+            $("#menu").removeClass("fixed");
+        }
+    });
+});
+
+$('#checkbox1').click(function(){
+	if ($(this).is(':checked')){
+    $('#checkbox2').click(function(){
+    if ($(this).is(':checked')){
+		  $('#btn_send').removeAttr('disabled');
+	    } else {
+		  $('#btn_send').attr('disabled', 'disabled'); 
+    }
+    });
+  } else {$('#btn_send').attr('disabled', 'disabled'); }
+});
 
